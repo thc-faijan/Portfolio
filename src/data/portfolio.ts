@@ -1,6 +1,3 @@
-import type { Project } from '../types/portfolio'
-
-export const projects: Project[] = []
 export { experiences } from './experience'
 export { certificates } from './certificates'
 export { writeups } from './writeups'
