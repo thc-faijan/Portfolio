@@ -7,6 +7,8 @@ import { About } from './sections/About'
 import { Skills } from './sections/Skills'
 import { SecurityArsenal } from './sections/SecurityArsenal'
 import { Projects } from './sections/Projects'
+import { Experience } from './sections/Experience'
+import { Certificates } from './sections/Certificates'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -23,13 +25,8 @@ function App() {
 
         <Projects />
 
-        <Section id="experience" eyebrow="04 / Timeline" title="Experience" description="A clear record of roles, learning, and responsibility—added only when verified.">
-          <div className="empty-state panel"><span className="empty-icon">◷</span><h3>Experience data pending</h3><p>Professional history can be added in <code>src/data/portfolio.ts</code>.</p></div>
-        </Section>
-
-        <Section id="certificates" eyebrow="05 / Credentials" title="Certificates" description="Credentials will link to their source of truth, never to fabricated verification.">
-          <div className="empty-state panel"><span className="empty-icon">◇</span><h3>No certificates added yet</h3><p>Certificate metadata and verification links will appear here when provided.</p></div>
-        </Section>
+        <Experience />
+        <Certificates />
 
         <Section id="writeups" eyebrow="06 / Research" title="Writeups & notes" description="A future home for security learning, research, and practical writeups.">
           <div className="empty-state panel"><span className="empty-icon">↗</span><h3>No writeups added yet</h3><p>Only completed and verified work will be published in this section.</p></div>

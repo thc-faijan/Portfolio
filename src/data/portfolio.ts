@@ -1,8 +1,8 @@
-import type { Certificate, Experience, Project, Writeup } from '../types/portfolio'
+import type { Project, Writeup } from '../types/portfolio'
 
 export const projects: Project[] = []
-export const experiences: Experience[] = []
-export const certificates: Certificate[] = []
+export { experiences } from './experience'
+export { certificates } from './certificates'
 export const writeups: Writeup[] = []
 
 export const focusAreas = [
