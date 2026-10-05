@@ -6,6 +6,7 @@ import { Hero } from './sections/Hero'
 import { About } from './sections/About'
 import { Skills } from './sections/Skills'
 import { SecurityArsenal } from './sections/SecurityArsenal'
+import { Projects } from './sections/Projects'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -20,9 +21,7 @@ function App() {
         <Skills />
         <SecurityArsenal />
 
-        <Section id="projects" eyebrow="03 / Work" title="Selected projects" description="Projects will be presented with the problem, approach, technology, and outcome clearly separated.">
-          <div className="empty-state panel"><span className="empty-icon">⌁</span><h3>No projects added yet</h3><p>This section is ready for real project data. No project details have been invented.</p></div>
-        </Section>
+        <Projects />
 
         <Section id="experience" eyebrow="04 / Timeline" title="Experience" description="A clear record of roles, learning, and responsibility—added only when verified.">
           <div className="empty-state panel"><span className="empty-icon">◷</span><h3>Experience data pending</h3><p>Professional history can be added in <code>src/data/portfolio.ts</code>.</p></div>
