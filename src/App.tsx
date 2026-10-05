@@ -3,6 +3,7 @@ import { Section } from './components/Section'
 import { profile, socialLinks } from './data/profile'
 import { focusAreas } from './data/portfolio'
 import { useTheme } from './hooks/useTheme'
+import { SocialLinks } from './components/SocialLinks'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -23,9 +24,7 @@ function App() {
               <a className="button" href="#projects">View my work <span aria-hidden="true">↗</span></a>
               <a className="button button-ghost" href="#contact">Get in touch</a>
             </div>
-            <div className="social-links" aria-label="Social links">
-              {socialLinks.map((link) => <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}>{link.label}</a>)}
-            </div>
+            <SocialLinks />
           </div>
           <div className="hero-visual panel reveal" aria-label="Security assessment overview">
             <div className="panel-top"><span className="dot red" /><span className="dot yellow" /><span className="dot green" /><span className="panel-label">assessment.log</span></div>

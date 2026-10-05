@@ -1,0 +1,1 @@
+export { writeups } from './portfolio'

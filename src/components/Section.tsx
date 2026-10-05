@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { SectionHeading } from './SectionHeading'
 
 interface SectionProps {
   id: string
@@ -11,11 +12,7 @@ interface SectionProps {
 export function Section({ id, eyebrow, title, description, children }: SectionProps) {
   return (
     <section className="section container" id={id} aria-labelledby={`${id}-title`}>
-      <div className="section-heading reveal">
-        <p className="eyebrow">{eyebrow}</p>
-        <h2 id={`${id}-title`}>{title}</h2>
-        {description && <p className="section-description">{description}</p>}
-      </div>
+      <SectionHeading id={`${id}-title`} eyebrow={eyebrow} title={title} description={description} />
       {children}
     </section>
   )

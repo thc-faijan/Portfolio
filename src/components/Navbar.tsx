@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { navigation } from '../data/profile'
 import type { Theme } from '../hooks/useTheme'
+import { useActiveSection } from '../hooks/useActiveSection'
 
 interface NavbarProps {
   theme: Theme
@@ -9,6 +10,31 @@ interface NavbarProps {
 
 export function Navbar({ theme, onToggleTheme }: NavbarProps) {
   const [open, setOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const activeSection = useActiveSection(navigation.map((item) => item.href.slice(1)))
+
+  useEffect(() => {
+    if (!open) return
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+      if (event.key === 'Tab' && menuRef.current) {
+        const focusable = menuRef.current.querySelectorAll<HTMLElement>('a, button')
+        if (!focusable.length) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first.focus()
+        }
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    menuRef.current?.querySelector<HTMLElement>('a, button')?.focus()
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [open])
 
   return (
     <header className="site-header">
@@ -21,9 +47,9 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
           <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
           {open ? '×' : '☰'}
         </button>
-        <div className={`nav-menu ${open ? 'is-open' : ''}`} id="site-menu">
+        <div className={`nav-menu ${open ? 'is-open' : ''}`} id="site-menu" ref={menuRef} aria-hidden={!open && undefined}>
           {navigation.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>
+            <a className={activeSection === item.href.slice(1) ? 'active' : ''} key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>
           ))}
           <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>
             {theme === 'dark' ? '☼' : '☾'}
