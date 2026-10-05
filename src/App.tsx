@@ -9,6 +9,7 @@ import { SecurityArsenal } from './sections/SecurityArsenal'
 import { Projects } from './sections/Projects'
 import { Experience } from './sections/Experience'
 import { Certificates } from './sections/Certificates'
+import { Writeups } from './sections/Writeups'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -28,9 +29,7 @@ function App() {
         <Experience />
         <Certificates />
 
-        <Section id="writeups" eyebrow="06 / Research" title="Writeups & notes" description="A future home for security learning, research, and practical writeups.">
-          <div className="empty-state panel"><span className="empty-icon">↗</span><h3>No writeups added yet</h3><p>Only completed and verified work will be published in this section.</p></div>
-        </Section>
+        <Writeups />
 
         <Section id="terminal" eyebrow="07 / Interface" title="A safe portfolio terminal" description="The interactive command surface will be added in the next implementation phase.">
           <div className="terminal-preview panel"><p><span className="prompt">faijan@portfolio:~$</span> help</p><p className="muted">Available commands will appear here.</p><span className="cursor" /></div>

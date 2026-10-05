@@ -1,9 +1,9 @@
-import type { Project, Writeup } from '../types/portfolio'
+import type { Project } from '../types/portfolio'
 
 export const projects: Project[] = []
 export { experiences } from './experience'
 export { certificates } from './certificates'
-export const writeups: Writeup[] = []
+export { writeups } from './writeups'
 
 export const focusAreas = [
   'Web Application Security',
