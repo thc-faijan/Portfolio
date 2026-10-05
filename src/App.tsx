@@ -10,6 +10,7 @@ import { Projects } from './sections/Projects'
 import { Experience } from './sections/Experience'
 import { Certificates } from './sections/Certificates'
 import { Writeups } from './sections/Writeups'
+import { Terminal } from './sections/Terminal'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -31,9 +32,7 @@ function App() {
 
         <Writeups />
 
-        <Section id="terminal" eyebrow="07 / Interface" title="A safe portfolio terminal" description="The interactive command surface will be added in the next implementation phase.">
-          <div className="terminal-preview panel"><p><span className="prompt">faijan@portfolio:~$</span> help</p><p className="muted">Available commands will appear here.</p><span className="cursor" /></div>
-        </Section>
+        <Terminal toggleTheme={toggleTheme} />
 
         <Section id="contact" eyebrow="08 / Connect" title="Start a conversation." description="For opportunities, collaboration, or a thoughtful security discussion.">
           <div className="contact-card panel"><div><p className="card-label">Email</p><a className="contact-email" href={`mailto:${profile.email}`}>{profile.email}</a></div><div className="social-links">{socialLinks.slice(0, 3).map((link) => <a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div></div>
