@@ -15,6 +15,7 @@ export const profile = {
 export const navigation: NavItem[] = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Arsenal', href: '#arsenal' },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
   { label: 'Certificates', href: '#certificates' },

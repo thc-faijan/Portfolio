@@ -4,6 +4,8 @@ import { profile, socialLinks } from './data/profile'
 import { useTheme } from './hooks/useTheme'
 import { Hero } from './sections/Hero'
 import { About } from './sections/About'
+import { Skills } from './sections/Skills'
+import { SecurityArsenal } from './sections/SecurityArsenal'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -15,9 +17,8 @@ function App() {
         <Hero />
         <About />
 
-        <Section id="skills" eyebrow="02 / Toolkit" title="Tools & technologies" description="A data-driven space for capabilities and tools, without artificial proficiency percentages.">
-          <div className="empty-state panel"><span className="empty-icon">+</span><h3>Skills are being documented</h3><p>Verified tools, techniques, and practical notes will be added here as the portfolio evolves.</p></div>
-        </Section>
+        <Skills />
+        <SecurityArsenal />
 
         <Section id="projects" eyebrow="03 / Work" title="Selected projects" description="Projects will be presented with the problem, approach, technology, and outcome clearly separated.">
           <div className="empty-state panel"><span className="empty-icon">⌁</span><h3>No projects added yet</h3><p>This section is ready for real project data. No project details have been invented.</p></div>
