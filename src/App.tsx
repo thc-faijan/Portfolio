@@ -1,9 +1,9 @@
 import { Navbar } from './components/Navbar'
 import { Section } from './components/Section'
 import { profile, socialLinks } from './data/profile'
-import { focusAreas } from './data/portfolio'
 import { useTheme } from './hooks/useTheme'
-import { SocialLinks } from './components/SocialLinks'
+import { Hero } from './sections/Hero'
+import { About } from './sections/About'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -12,39 +12,8 @@ function App() {
     <div id="top">
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main>
-        <section className="hero container">
-          <div className="hero-copy reveal">
-            <p className="status"><span aria-hidden="true" />{profile.availability}</p>
-            <p className="eyebrow">Security-minded. Evidence-led.</p>
-            <h1>{profile.name}<span className="accent">.</span></h1>
-            <p className="hero-role">{profile.role}</p>
-            <p className="hero-positioning">{profile.positioning}</p>
-            <p className="hero-intro">{profile.intro}</p>
-            <div className="hero-actions">
-              <a className="button" href="#projects">View my work <span aria-hidden="true">↗</span></a>
-              <a className="button button-ghost" href="#contact">Get in touch</a>
-            </div>
-            <SocialLinks />
-          </div>
-          <div className="hero-visual panel reveal" aria-label="Security assessment overview">
-            <div className="panel-top"><span className="dot red" /><span className="dot yellow" /><span className="dot green" /><span className="panel-label">assessment.log</span></div>
-            <div className="terminal-lines">
-              <p><span className="prompt">faijan@portfolio:~$</span> whoami</p>
-              <p className="output">Web application security learner</p>
-              <p><span className="prompt">faijan@portfolio:~$</span> focus --current</p>
-              <p className="output">authorized testing · secure design · continuous learning</p>
-              <p><span className="prompt">faijan@portfolio:~$</span> <span className="cursor" /></p>
-            </div>
-            <div className="signal-grid" aria-hidden="true"><span /><span /><span /><span /><span /><span /></div>
-          </div>
-        </section>
-
-        <Section id="about" eyebrow="01 / Profile" title="Curiosity backed by careful practice." description="A working foundation for a portfolio that will grow with verified projects, learning, and security research.">
-          <div className="about-grid">
-            <article className="panel content-card"><p>I am building my path around web application security and authorized penetration testing. My approach starts with understanding the product, testing assumptions, documenting evidence, and keeping remediation in view.</p><p>This portfolio intentionally leaves room for verified experience and credentials to be added as they become available.</p></article>
-            <article className="panel focus-card"><p className="card-label">Current focus</p><ul>{focusAreas.map((area) => <li key={area}>{area}</li>)}</ul></article>
-          </div>
-        </Section>
+        <Hero />
+        <About />
 
         <Section id="skills" eyebrow="02 / Toolkit" title="Tools & technologies" description="A data-driven space for capabilities and tools, without artificial proficiency percentages.">
           <div className="empty-state panel"><span className="empty-icon">+</span><h3>Skills are being documented</h3><p>Verified tools, techniques, and practical notes will be added here as the portfolio evolves.</p></div>

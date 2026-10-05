@@ -6,8 +6,10 @@ export const profile = {
   positioning: 'Cybersecurity & Web Application Security',
   availability: 'Open to Web Application Security Opportunities',
   email: 'faijan.official.cs@gmail.com',
+  education: 'BCA in Cyber Security',
+  resumeUrl: '',
   intro:
-    'I focus on understanding how web applications work, identifying security weaknesses through authorized testing, and building a stronger practical security mindset.',
+    'I focus on understanding how web applications break, identifying security weaknesses through authorized testing, and developing practical offensive-security skills through hands-on labs and research.',
 }
 
 export const navigation: NavItem[] = [
